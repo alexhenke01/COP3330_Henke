@@ -1,9 +1,11 @@
 public class Pyramid extends Shape3D {
-    private double base;
+    private double length;
+    private double width;
     private double height;
 
-    public Pyramid(double base, double height) {
-        this.base = base;
+    public Pyramid(double length, double width, double height) {
+        this.length = length;
+        this.width = width;
         this.height = height;
     }
 
@@ -14,11 +16,12 @@ public class Pyramid extends Shape3D {
 
     @Override
     public double getArea(){
-        return base*base + (2*base*(Math.sqrt(base*base/4 + height*height)));
+        return length*width + length*(Math.sqrt(width*width/4 + height*height)) +
+                width*(Math.sqrt(length*length/4 + height*height));
     }
 
     @Override
     public double getVolume() {
-        return base*base*height/3;
+        return length*width*height/3;
     }
 }
